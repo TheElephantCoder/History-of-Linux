@@ -1,0 +1,295 @@
+<div class="linux-timeline-container">
+  <style>
+    .linux-timeline-container {
+      font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+      color: #333;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .linux-timeline-container a {
+      transition: color 0.3s ease;
+    }
+    
+    .linux-timeline-container a:hover {
+      color: #2a6496;
+      text-decoration: underline;
+    }
+    
+    .timeline-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .timeline-header h1 {
+      font-size: 2.5rem;
+      color: #2b2b2b;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    
+    .timeline-header p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .linux-logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      display: block;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #4b8bbe;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      border-radius: 3px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      margin-bottom: 2rem;
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      border: 4px solid #4b8bbe;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-item:hover::after {
+      background-color: #4b8bbe;
+      transform: scale(1.2);
+    }
+    
+    .left {
+      left: 0;
+      text-align: right;
+    }
+    
+    .right {
+      left: 50%;
+      text-align: left;
+    }
+    
+    .left::after {
+      right: -14px;
+    }
+    
+    .right::after {
+      left: -14px;
+    }
+    
+    .timeline-content {
+      padding: 20px 25px;
+      background-color: white;
+      position: relative;
+      border-radius: 6px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+    
+    .timeline-year {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #4b8bbe;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .timeline-text {
+      line-height: 1.5;
+      color: #555;
+    }
+    
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        text-align: left;
+      }
+      
+      .timeline-item::after {
+        left: 18px;
+      }
+      
+      .left::after, .right::after {
+        left: 18px;
+      }
+      
+      .left, .right {
+        left: 0;
+      }
+    }
+  </style>
+  
+  <div class="timeline-header">
+    <svg class="linux-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Tux the Linux Penguin -->
+      <ellipse cx="50" cy="65" rx="30" ry="35" fill="black"/>  <!-- Body -->
+      <ellipse cx="50" cy="60" rx="20" ry="25" fill="white"/>  <!-- Belly -->
+      <circle cx="50" cy="30" r="20" fill="black"/>  <!-- Head -->
+      <ellipse cx="40" cy="28" rx="4" ry="5" fill="white"/>  <!-- Left eye -->
+      <ellipse cx="60" cy="28" rx="4" ry="5" fill="white"/>  <!-- Right eye -->
+      <circle cx="40" cy="28" r="2" fill="black"/>  <!-- Left pupil -->
+      <circle cx="60" cy="28" r="2" fill="black"/>  <!-- Right pupil -->
+      <ellipse cx="50" cy="38" rx="6" ry="4" fill="#FF6600"/>  <!-- Beak -->
+      <ellipse cx="30" cy="55" rx="10" ry="6" fill="black" transform="rotate(-30,30,55)"/>  <!-- Left wing -->
+      <ellipse cx="70" cy="55" rx="10" ry="6" fill="black" transform="rotate(30,70,55)"/>  <!-- Right wing -->
+      <ellipse cx="40" cy="85" rx="8" ry="5" fill="#FF6600" transform="rotate(15,40,85)"/>  <!-- Left foot -->
+      <ellipse cx="60" cy="85" rx="8" ry="5" fill="#FF6600" transform="rotate(-15,60,85)"/>  <!-- Right foot -->
+    </svg>
+    <h1>The History of Linux</h1>
+    <p>A timeline of key events in the development of the world's most popular open-source operating system</p>
+    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">Created by <a href="https://github.com/TheElephantCoder" target="_blank" style="color: #4b8bbe; text-decoration: none; font-weight: 500;">@TheElephantCoder</a></p>
+  </div>
+  
+  <div class="timeline">
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <div class="timeline-year">1983</div>
+        <h3 class="timeline-title">GNU Project Begins</h3>
+        <p class="timeline-text"><b>Richard Stallman</b> announces the GNU Project, aiming to create a free Unix-like operating system. This laid the groundwork for the free software movement.</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <div class="timeline-year">1991</div>
+        <h3 class="timeline-title">Linux Kernel Created</h3>
+        <p class="timeline-text"><b>Linus Torvalds</b>, a Finnish student, creates and releases the Linux kernel. His famous message: "I'm doing a (free) operating system (just a hobby, won't be big and professional like GNU)."</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <div class="timeline-year">1992-1993</div>
+        <h3 class="timeline-title">First Distributions</h3>
+        <p class="timeline-text">The first Linux distributions appear, including <b>SLS</b> (Softlanding Linux System), which later influenced <b>Slackware</b>. The GPL license is applied to the Linux kernel.</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <div class="timeline-year">1994</div>
+        <h3 class="timeline-title">Red Hat and Debian Emerge</h3>
+        <p class="timeline-text"><b>Red Hat Linux</b> and <b>Debian</b> are released, two distributions that would go on to have enormous influence on the Linux ecosystem.</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <div class="timeline-year">1996</div>
+        <h3 class="timeline-title">Linux 2.0 and the Penguin</h3>
+        <p class="timeline-text">Linux kernel 2.0 is released. Tux the penguin becomes the official Linux mascot, designed by <b>Larry Ewing</b>.</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <div class="timeline-year">1998</div>
+        <h3 class="timeline-title">Corporate Support Begins</h3>
+        <p class="timeline-text"><b>IBM</b> announces support for Linux, investing $1 billion. This marks the beginning of major corporate backing for Linux.</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <div class="timeline-year">2000-2003</div>
+        <h3 class="timeline-title">Enterprise Adoption</h3>
+        <p class="timeline-text">Enterprise distributions like <b>Red Hat Enterprise Linux</b> emerge. Linux gains significant market share in server environments.</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <div class="timeline-year">2004</div>
+        <h3 class="timeline-title">Ubuntu Released</h3>
+        <p class="timeline-text"><b>Canonical</b> releases <b>Ubuntu</b>, which becomes one of the most popular desktop Linux distributions, focusing on ease of use.</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <div class="timeline-year">2007-2008</div>
+        <h3 class="timeline-title">Mobile Linux Emerges</h3>
+        <p class="timeline-text"><b>Android</b>, based on the Linux kernel, is released. The <b>Linux Foundation</b> is formed to promote and standardize Linux development.</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <div class="timeline-year">2011-2015</div>
+        <h3 class="timeline-title">Cloud Dominance</h3>
+        <p class="timeline-text">Linux becomes the dominant operating system for cloud infrastructure, powering most servers on platforms like <b>AWS</b>, <b>Azure</b>, and <b>Google Cloud</b>.</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <div class="timeline-year">2015-2019</div>
+        <h3 class="timeline-title">Container Revolution</h3>
+        <p class="timeline-text">Linux containers and <b>Docker</b> transform deployment practices. <b>Kubernetes</b>, an open-source container orchestration system, becomes the industry standard.</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <div class="timeline-year">2019-Present</div>
+        <h3 class="timeline-title">Linux Everywhere</h3>
+        <p class="timeline-text">Linux powers 100% of the world's top 500 supercomputers, most cloud servers, billions of Android devices, and continues to expand into IoT, automotive systems, and more.</p>
+      </div>
+    </div>
+  </div>
+</div>
